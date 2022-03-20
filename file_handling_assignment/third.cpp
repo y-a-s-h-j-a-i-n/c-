@@ -8,7 +8,7 @@ int main()
     fstream myDemo;
     string str;
     char a[100];
-    int count=0
+    int count=0;
     myDemo.open("demo.txt",ios::in);
     if (!myDemo)
     {
