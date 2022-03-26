@@ -28,22 +28,24 @@ class Student
      cin>>loc;
 
      }
-     void display(char arr[])
+     void display(char *arr)
      {
           string doc[]={"ID      ","Name    ","brach   ","Location"};
           int i=0;
      cout<<"=================================================\n";
-     for(int j=0;j<(sizeof(arr)/sizeof(arr[0]));j++)
+     while(*arr)
      {
-     if(arr[j]=='_')
+     if(*arr=='_')
      {
           cout<<endl;
           cout<<doc[i];
           cout<<" : ";
           i+=1;
+          arr++;
           continue;
      }
-     cout<<arr[j];
+     cout<<*arr;
+     arr++;
      }
      cout<<endl;
      }
@@ -71,7 +73,7 @@ int main()
                     cout<<"\nDo you want to add more : ";
                     cin>>ch;
                }
-               cout<<"\nData added sucessfully\n";
+               cout<<"\nData added sucessfully\n\n";
                fout.close();
           }
           else if (ch==2){
