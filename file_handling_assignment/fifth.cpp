@@ -1,6 +1,7 @@
 #include<iostream>
 #include<fstream>
 #include<string.h>
+#include <string>
 using namespace std;
 class Student
 {
@@ -9,23 +10,21 @@ class Student
      string name;
      string branch;
      string loc;
-     int getno()
-     {
-          return ID;
-     }
 
      void getdata()
      {
      cout<<"Enter ID       : ";
      cin>>ID;
+
      cout<<"Enter Name     : ";
-     cin>>name;
+     cin.ignore();
+     getline(cin,name);    // take input with space 
 
      cout<<"Enter Branch   : ";
-     cin>>branch;
+     getline(cin,branch);
 
      cout<<"Enter Location : ";
-     cin>>loc;
+     getline(cin,loc);
 
      }
      void display(char *arr)
@@ -47,7 +46,9 @@ class Student
      cout<<*arr;
      arr++;
      }
+     cout<<"=================================================\n";
      cout<<endl;
+
      }
 }s;
 
@@ -58,6 +59,7 @@ int main()
      fstream fp("student_data.txt",ios::in|ios::out|ios::binary);
      int ch;
      char buf[100];
+     cout<<endl;
      cout<<"\t1: enter Student detail\n";
      cout<<"\t2: find Student\n";
      cout<<"\nEnter Your Choice  : ";
